@@ -47,10 +47,12 @@ jobs:
     - name: Prepare for GitHub Pages
       if: success()
       run: npx grunt copy:ghPages
+    - name: ls -hAl
+      run: ls -hAl
     - name: Add CNAME file to root
       if: success()
       run: |
-        echo "encode.rongxiaoli.top" > CNAME
+        echo "encode.rongxiaoli.top" > ./build/CNAME
     - name: Deploy to GitHub Pages
       if: success() && github.ref == 'refs/heads/master'
       uses: crazy-max/ghaction-github-pages@v3
